@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at Registers.v(30): always construct contains both blocking and non-blocking assignments File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Registers.v Line: 30

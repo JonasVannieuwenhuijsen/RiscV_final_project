@@ -1,0 +1,1380 @@
+Analysis & Synthesis report for Final_Project
+Wed Dec 16 10:09:32 2020
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: RiscV_cpu:riscv
+ 12. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|program_counter:PC
+ 13. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|instructionMemory:Instruction_memory
+ 14. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|ADD:Add_4
+ 15. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|control:control
+ 16. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|register:register
+ 17. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|imm_gen:imm_gen
+ 18. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|mux:mux_aluRegister
+ 19. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|ALU:alu
+ 20. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|ADD:sum
+ 21. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|mux:mux_pc
+ 22. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|ram:Data_memory
+ 23. Parameter Settings for User Entity Instance: RiscV_cpu:riscv|mux:mux_memData
+ 24. Port Connectivity Checks: "RiscV_cpu:riscv|ADD:Add_4"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+ 28. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Wed Dec 16 10:09:32 2020       ;
+; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                   ; Final_Project                               ;
+; Top-level Entity Name           ; Final_Project                               ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 2928                                        ;
+; Total pins                      ; 99                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; Final_Project      ; Final_Project      ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                             ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                               ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------+---------+
+; ../assignment13/edge_detect.v    ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/assignment13/edge_detect.v    ;         ;
+; Final_Project.v                  ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v ;         ;
+; ../HW5/RiscV_cpu.v               ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v               ;         ;
+; ../HW5/RISCV.h                   ; yes             ; User File              ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RISCV.h                   ;         ;
+; ../HW5/Registers.v               ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Registers.v               ;         ;
+; ../HW5/PC.v                      ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/PC.v                      ;         ;
+; ../HW5/Mux.v                     ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Mux.v                     ;         ;
+; ../HW5/InstructionMemory.v       ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/InstructionMemory.v       ;         ;
+; ../HW5/ImmGen.v                  ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/ImmGen.v                  ;         ;
+; ../HW5/dec7seg.v                 ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/dec7seg.v                 ;         ;
+; ../HW5/DataMemory.v              ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/DataMemory.v              ;         ;
+; ../HW5/Control.v                 ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Control.v                 ;         ;
+; ../HW5/ALU.v                     ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/ALU.v                     ;         ;
+; ../HW5/Adder.v                   ; yes             ; User Verilog HDL File  ; L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Adder.v                   ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 2325           ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 2247           ;
+;     -- 7 input functions                    ; 3              ;
+;     -- 6 input functions                    ; 1310           ;
+;     -- 5 input functions                    ; 272            ;
+;     -- 4 input functions                    ; 232            ;
+;     -- <=3 input functions                  ; 430            ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 2928           ;
+;                                             ;                ;
+; I/O pins                                    ; 99             ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 2928           ;
+; Total fan-out                               ; 21366          ;
+; Average fan-out                             ; 3.98           ;
++---------------------------------------------+----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                            ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                 ; Entity Name       ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------+-------------------+--------------+
+; |Final_Project                               ; 2247 (0)            ; 2928 (0)                  ; 0                 ; 0          ; 99   ; 0            ; |Final_Project                                                      ; Final_Project     ; work         ;
+;    |RiscV_cpu:riscv|                         ; 2247 (258)          ; 2928 (77)                 ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv                                      ; RiscV_cpu         ; work         ;
+;       |ADD:Add_4|                            ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|ADD:Add_4                            ; ADD               ; work         ;
+;       |ADD:sum|                              ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|ADD:sum                              ; ADD               ; work         ;
+;       |ALU:alu|                              ; 96 (96)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|ALU:alu                              ; ALU               ; work         ;
+;       |control:control|                      ; 27 (27)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|control:control                      ; control           ; work         ;
+;       |dec7seg:dc1|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|dec7seg:dc1                          ; dec7seg           ; work         ;
+;       |dec7seg:dc2|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|dec7seg:dc2                          ; dec7seg           ; work         ;
+;       |dec7seg:dc3|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|dec7seg:dc3                          ; dec7seg           ; work         ;
+;       |dec7seg:dc4|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|dec7seg:dc4                          ; dec7seg           ; work         ;
+;       |dec7seg:dc5|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|dec7seg:dc5                          ; dec7seg           ; work         ;
+;       |dec7seg:dc6|                          ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|dec7seg:dc6                          ; dec7seg           ; work         ;
+;       |edge_detect:ed1|                      ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|edge_detect:ed1                      ; edge_detect       ; work         ;
+;       |imm_gen:imm_gen|                      ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|imm_gen:imm_gen                      ; imm_gen           ; work         ;
+;       |instructionMemory:Instruction_memory| ; 48 (48)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|instructionMemory:Instruction_memory ; instructionMemory ; work         ;
+;       |mux:mux_aluRegister|                  ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|mux:mux_aluRegister                  ; mux               ; work         ;
+;       |mux:mux_memData|                      ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|mux:mux_memData                      ; mux               ; work         ;
+;       |mux:mux_pc|                           ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|mux:mux_pc                           ; mux               ; work         ;
+;       |program_counter:PC|                   ; 1 (1)               ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|program_counter:PC                   ; program_counter   ; work         ;
+;       |ram:Data_memory|                      ; 1019 (1019)         ; 2336 (2336)               ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory                      ; ram               ; work         ;
+;       |register:register|                    ; 564 (564)           ; 482 (482)                 ; 0                 ; 0          ; 0    ; 0            ; |Final_Project|RiscV_cpu:riscv|register:register                    ; register          ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                         ;
++---------------------------------------------------+----------------------------------------+
+; Register name                                     ; Reason for Removal                     ;
++---------------------------------------------------+----------------------------------------+
+; RiscV_cpu:riscv|register:register|regfile[1][0]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][0]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][0]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][28]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][28]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][28]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][28] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][23]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][23]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][23]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][23] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][22]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][22]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][22]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][22] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][12]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][12]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][12]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][12] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][13]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][13]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][13]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][13] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][31]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][31]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][31]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][31] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][20]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][20]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][20]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][20] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][21]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][21]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][21]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][21] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][27]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][27]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][27]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][27] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][26]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][26]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][26]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][26] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][16]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][16]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][16]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][16] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][17]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][17]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][17]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][17] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][25]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][25]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][25]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][25] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][24]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][24]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][24]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][24] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][15]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][15]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][15]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][15] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][14]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][14]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][14]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][14] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][29]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][29]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][29]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][29] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][19]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][19]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][19]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][19] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][18]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][18]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][18]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][18] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][11]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][11]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][11]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][11] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][10]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][10]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][10]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][10] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][0]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][1]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][1]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][1]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][1]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][7]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][7]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][7]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][7]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][5]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][5]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][5]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][5]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][6]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][6]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][6]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][6]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][3]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][3]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][3]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][3]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][2]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][2]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][2]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][2]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][4]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][4]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][4]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][4]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][30]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][30]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][30]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][30] ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][9]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][9]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][9]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][9]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[1][8]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[2][8]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[3][8]   ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[25][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[26][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[27][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[30][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[31][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[10][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[11][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[14][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[13][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[15][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[22][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[17][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[21][8]  ; Stuck at GND due to stuck port data_in ;
+; RiscV_cpu:riscv|register:register|regfile[23][8]  ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 542           ;                                        ;
++---------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2928  ;
+; Number of registers using Synchronous Clear  ; 1033  ;
+; Number of registers using Synchronous Load   ; 4     ;
+; Number of registers using Asynchronous Clear ; 1     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2922  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|program_counter:PC|out[8]         ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[0][23]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[1][4]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[2][13]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[3][22]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[4][16]  ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[5][22]  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[5][1]   ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[6][16]  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[6][2]   ;
+; 3:1                ; 29 bits   ; 58 LEs        ; 0 LEs                ; 58 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[7][15]  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[7][4]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[8][1]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[9][20]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[10][6]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[11][5]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[12][26] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[13][29] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[14][17] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[15][29] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[16][9]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[17][18] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[18][23] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[19][23] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[20][24] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[21][19] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[22][24] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[23][3]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[24][17] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[25][4]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[26][21] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[27][21] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[28][10] ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[29][24] ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[30][21] ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|register:register|regfile[31][29] ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[0][26]     ;
+; 3:1                ; 21 bits   ; 42 LEs        ; 21 LEs               ; 21 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[0][19]     ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 0 LEs                ; 38 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[1][11]     ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[1][4]      ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[2][1]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[3][3]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[4][6]      ;
+; 3:1                ; 31 bits   ; 62 LEs        ; 0 LEs                ; 62 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[5][11]     ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 0 LEs                ; 38 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[6][8]      ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 13 LEs               ; 13 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[6][21]     ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[7][28]     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|memory[7][0]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|HEXMode_reg[23]   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|HEXValue_reg[30]  ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|HEX5_reg[11]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|HEX4_reg[21]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|HEX3_reg[23]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|HEX2_reg[25]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|HEX1_reg[2]       ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|HEX0_reg[24]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|LED_reg[1]        ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|HexValueSW9[22]                   ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Final_Project|RiscV_cpu:riscv|HEX0_SW9[0]                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Final_Project|RiscV_cpu:riscv|HEX1_SW9[1]                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Final_Project|RiscV_cpu:riscv|HEX2_SW9[0]                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Final_Project|RiscV_cpu:riscv|HEX3_SW9[3]                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Final_Project|RiscV_cpu:riscv|HEX4_SW9[4]                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Final_Project|RiscV_cpu:riscv|HEX5_SW9[1]                       ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |Final_Project|RiscV_cpu:riscv|LED[1]                            ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|HEX5_select       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|displayData[10]                   ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 96 LEs               ; 64 LEs                 ; No         ; |Final_Project|RiscV_cpu:riscv|ALU:alu|Mux12                     ;
+; 7:1                ; 17 bits   ; 68 LEs        ; 68 LEs               ; 0 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|imm_gen:imm_gen|Selector4         ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 320 LEs              ; 0 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|register:register|Mux31           ;
+; 16:1               ; 14 bits   ; 140 LEs       ; 140 LEs              ; 0 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|Mux10                             ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 20 LEs               ; 4 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|imm_gen:imm_gen|Selector27        ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|register:register|Mux62           ;
+; 18:1               ; 5 bits    ; 60 LEs        ; 55 LEs               ; 5 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|displayData[5]                    ;
+; 18:1               ; 6 bits    ; 72 LEs        ; 66 LEs               ; 6 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|displayData[20]                   ;
+; 14:1               ; 2 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|Mux12                             ;
+; 17:1               ; 2 bits    ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|displayData[19]                   ;
+; 75:1               ; 23 bits   ; 1150 LEs      ; 1150 LEs             ; 0 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|data_out[11]      ;
+; 75:1               ; 7 bits    ; 350 LEs       ; 350 LEs              ; 0 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|data_out[8]       ;
+; 75:1               ; 2 bits    ; 100 LEs       ; 100 LEs              ; 0 LEs                  ; No         ; |Final_Project|RiscV_cpu:riscv|ram:Data_memory|data_out[2]       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; XLEN           ; 32    ; Signed Integer                      ;
+; ALU_AND        ; 0000  ; Unsigned Binary                     ;
+; ALU_OR         ; 0001  ; Unsigned Binary                     ;
+; ALU_ADD        ; 0010  ; Unsigned Binary                     ;
+; ALU_SUB        ; 0110  ; Unsigned Binary                     ;
+; I_IMM          ; 00001 ; Unsigned Binary                     ;
+; B_IMM          ; 00010 ; Unsigned Binary                     ;
+; S_IMM          ; 00100 ; Unsigned Binary                     ;
+; U_IMM          ; 01000 ; Unsigned Binary                     ;
+; J_IMM          ; 10000 ; Unsigned Binary                     ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|program_counter:PC ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; XLEN           ; 32    ; Signed Integer                                         ;
+; ALU_AND        ; 0000  ; Unsigned Binary                                        ;
+; ALU_OR         ; 0001  ; Unsigned Binary                                        ;
+; ALU_ADD        ; 0010  ; Unsigned Binary                                        ;
+; ALU_SUB        ; 0110  ; Unsigned Binary                                        ;
+; I_IMM          ; 00001 ; Unsigned Binary                                        ;
+; B_IMM          ; 00010 ; Unsigned Binary                                        ;
+; S_IMM          ; 00100 ; Unsigned Binary                                        ;
+; U_IMM          ; 01000 ; Unsigned Binary                                        ;
+; J_IMM          ; 10000 ; Unsigned Binary                                        ;
+; size           ; 32    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|instructionMemory:Instruction_memory ;
++----------------+------------------+---------------------------------------------------------------+
+; Parameter Name ; Value            ; Type                                                          ;
++----------------+------------------+---------------------------------------------------------------+
+; XLEN           ; 32               ; Signed Integer                                                ;
+; ALU_AND        ; 0000             ; Unsigned Binary                                               ;
+; ALU_OR         ; 0001             ; Unsigned Binary                                               ;
+; ALU_ADD        ; 0010             ; Unsigned Binary                                               ;
+; ALU_SUB        ; 0110             ; Unsigned Binary                                               ;
+; I_IMM          ; 00001            ; Unsigned Binary                                               ;
+; B_IMM          ; 00010            ; Unsigned Binary                                               ;
+; S_IMM          ; 00100            ; Unsigned Binary                                               ;
+; U_IMM          ; 01000            ; Unsigned Binary                                               ;
+; J_IMM          ; 10000            ; Unsigned Binary                                               ;
+; logwords       ; 8                ; Signed Integer                                                ;
+; words          ; 256              ; Signed Integer                                                ;
+; size           ; 32               ; Signed Integer                                                ;
+; addr_size      ; 32               ; Signed Integer                                                ;
+; contents       ; instructions.hex ; String                                                        ;
++----------------+------------------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|ADD:Add_4 ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; XLEN           ; 32    ; Signed Integer                                ;
+; ALU_AND        ; 0000  ; Unsigned Binary                               ;
+; ALU_OR         ; 0001  ; Unsigned Binary                               ;
+; ALU_ADD        ; 0010  ; Unsigned Binary                               ;
+; ALU_SUB        ; 0110  ; Unsigned Binary                               ;
+; I_IMM          ; 00001 ; Unsigned Binary                               ;
+; B_IMM          ; 00010 ; Unsigned Binary                               ;
+; S_IMM          ; 00100 ; Unsigned Binary                               ;
+; U_IMM          ; 01000 ; Unsigned Binary                               ;
+; J_IMM          ; 10000 ; Unsigned Binary                               ;
+; size           ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|control:control ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; XLEN           ; 32    ; Signed Integer                                      ;
+; ALU_AND        ; 0000  ; Unsigned Binary                                     ;
+; ALU_OR         ; 0001  ; Unsigned Binary                                     ;
+; ALU_ADD        ; 0010  ; Unsigned Binary                                     ;
+; ALU_SUB        ; 0110  ; Unsigned Binary                                     ;
+; I_IMM          ; 00001 ; Unsigned Binary                                     ;
+; B_IMM          ; 00010 ; Unsigned Binary                                     ;
+; S_IMM          ; 00100 ; Unsigned Binary                                     ;
+; U_IMM          ; 01000 ; Unsigned Binary                                     ;
+; J_IMM          ; 10000 ; Unsigned Binary                                     ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|register:register ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; XLEN           ; 32    ; Signed Integer                                        ;
+; ALU_AND        ; 0000  ; Unsigned Binary                                       ;
+; ALU_OR         ; 0001  ; Unsigned Binary                                       ;
+; ALU_ADD        ; 0010  ; Unsigned Binary                                       ;
+; ALU_SUB        ; 0110  ; Unsigned Binary                                       ;
+; I_IMM          ; 00001 ; Unsigned Binary                                       ;
+; B_IMM          ; 00010 ; Unsigned Binary                                       ;
+; S_IMM          ; 00100 ; Unsigned Binary                                       ;
+; U_IMM          ; 01000 ; Unsigned Binary                                       ;
+; J_IMM          ; 10000 ; Unsigned Binary                                       ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|imm_gen:imm_gen ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; XLEN           ; 32    ; Signed Integer                                      ;
+; ALU_AND        ; 0000  ; Unsigned Binary                                     ;
+; ALU_OR         ; 0001  ; Unsigned Binary                                     ;
+; ALU_ADD        ; 0010  ; Unsigned Binary                                     ;
+; ALU_SUB        ; 0110  ; Unsigned Binary                                     ;
+; I_IMM          ; 00001 ; Unsigned Binary                                     ;
+; B_IMM          ; 00010 ; Unsigned Binary                                     ;
+; S_IMM          ; 00100 ; Unsigned Binary                                     ;
+; U_IMM          ; 01000 ; Unsigned Binary                                     ;
+; J_IMM          ; 10000 ; Unsigned Binary                                     ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|mux:mux_aluRegister ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; XLEN           ; 32    ; Signed Integer                                          ;
+; ALU_AND        ; 0000  ; Unsigned Binary                                         ;
+; ALU_OR         ; 0001  ; Unsigned Binary                                         ;
+; ALU_ADD        ; 0010  ; Unsigned Binary                                         ;
+; ALU_SUB        ; 0110  ; Unsigned Binary                                         ;
+; I_IMM          ; 00001 ; Unsigned Binary                                         ;
+; B_IMM          ; 00010 ; Unsigned Binary                                         ;
+; S_IMM          ; 00100 ; Unsigned Binary                                         ;
+; U_IMM          ; 01000 ; Unsigned Binary                                         ;
+; J_IMM          ; 10000 ; Unsigned Binary                                         ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|ALU:alu ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; XLEN           ; 32    ; Signed Integer                              ;
+; ALU_AND        ; 0000  ; Unsigned Binary                             ;
+; ALU_OR         ; 0001  ; Unsigned Binary                             ;
+; ALU_ADD        ; 0010  ; Unsigned Binary                             ;
+; ALU_SUB        ; 0110  ; Unsigned Binary                             ;
+; I_IMM          ; 00001 ; Unsigned Binary                             ;
+; B_IMM          ; 00010 ; Unsigned Binary                             ;
+; S_IMM          ; 00100 ; Unsigned Binary                             ;
+; U_IMM          ; 01000 ; Unsigned Binary                             ;
+; J_IMM          ; 10000 ; Unsigned Binary                             ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|ADD:sum ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; XLEN           ; 32    ; Signed Integer                              ;
+; ALU_AND        ; 0000  ; Unsigned Binary                             ;
+; ALU_OR         ; 0001  ; Unsigned Binary                             ;
+; ALU_ADD        ; 0010  ; Unsigned Binary                             ;
+; ALU_SUB        ; 0110  ; Unsigned Binary                             ;
+; I_IMM          ; 00001 ; Unsigned Binary                             ;
+; B_IMM          ; 00010 ; Unsigned Binary                             ;
+; S_IMM          ; 00100 ; Unsigned Binary                             ;
+; U_IMM          ; 01000 ; Unsigned Binary                             ;
+; J_IMM          ; 10000 ; Unsigned Binary                             ;
+; size           ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|mux:mux_pc ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; XLEN           ; 32    ; Signed Integer                                 ;
+; ALU_AND        ; 0000  ; Unsigned Binary                                ;
+; ALU_OR         ; 0001  ; Unsigned Binary                                ;
+; ALU_ADD        ; 0010  ; Unsigned Binary                                ;
+; ALU_SUB        ; 0110  ; Unsigned Binary                                ;
+; I_IMM          ; 00001 ; Unsigned Binary                                ;
+; B_IMM          ; 00010 ; Unsigned Binary                                ;
+; S_IMM          ; 00100 ; Unsigned Binary                                ;
+; U_IMM          ; 01000 ; Unsigned Binary                                ;
+; J_IMM          ; 10000 ; Unsigned Binary                                ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|ram:Data_memory ;
++----------------+---------+---------------------------------------------------+
+; Parameter Name ; Value   ; Type                                              ;
++----------------+---------+---------------------------------------------------+
+; XLEN           ; 32      ; Signed Integer                                    ;
+; ALU_AND        ; 0000    ; Unsigned Binary                                   ;
+; ALU_OR         ; 0001    ; Unsigned Binary                                   ;
+; ALU_ADD        ; 0010    ; Unsigned Binary                                   ;
+; ALU_SUB        ; 0110    ; Unsigned Binary                                   ;
+; I_IMM          ; 00001   ; Unsigned Binary                                   ;
+; B_IMM          ; 00010   ; Unsigned Binary                                   ;
+; S_IMM          ; 00100   ; Unsigned Binary                                   ;
+; U_IMM          ; 01000   ; Unsigned Binary                                   ;
+; J_IMM          ; 10000   ; Unsigned Binary                                   ;
+; logwords       ; 6       ; Signed Integer                                    ;
+; words          ; 64      ; Signed Integer                                    ;
+; size           ; 32      ; Signed Integer                                    ;
+; addr_size      ; 32      ; Signed Integer                                    ;
+; contents       ; ram.hex ; String                                            ;
++----------------+---------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RiscV_cpu:riscv|mux:mux_memData ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; XLEN           ; 32    ; Signed Integer                                      ;
+; ALU_AND        ; 0000  ; Unsigned Binary                                     ;
+; ALU_OR         ; 0001  ; Unsigned Binary                                     ;
+; ALU_ADD        ; 0010  ; Unsigned Binary                                     ;
+; ALU_SUB        ; 0110  ; Unsigned Binary                                     ;
+; I_IMM          ; 00001 ; Unsigned Binary                                     ;
+; B_IMM          ; 00010 ; Unsigned Binary                                     ;
+; S_IMM          ; 00100 ; Unsigned Binary                                     ;
+; U_IMM          ; 01000 ; Unsigned Binary                                     ;
+; J_IMM          ; 10000 ; Unsigned Binary                                     ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "RiscV_cpu:riscv|ADD:Add_4" ;
++----------+-------+----------+-------------------------+
+; Port     ; Type  ; Severity ; Details                 ;
++----------+-------+----------+-------------------------+
+; b[31..3] ; Input ; Info     ; Stuck at GND            ;
+; b[1..0]  ; Input ; Info     ; Stuck at GND            ;
+; b[2]     ; Input ; Info     ; Stuck at VCC            ;
++----------+-------+----------+-------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 2928                        ;
+;     CLR               ; 1                           ;
+;     ENA               ; 1890                        ;
+;     ENA SCLR          ; 1032                        ;
+;     SCLR              ; 1                           ;
+;     SLD               ; 4                           ;
+; arriav_lcell_comb     ; 2254                        ;
+;     arith             ; 95                          ;
+;         1 data inputs ; 30                          ;
+;         2 data inputs ; 19                          ;
+;         3 data inputs ; 3                           ;
+;         4 data inputs ; 6                           ;
+;         5 data inputs ; 37                          ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 2156                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 71                          ;
+;         3 data inputs ; 306                         ;
+;         4 data inputs ; 226                         ;
+;         5 data inputs ; 235                         ;
+;         6 data inputs ; 1310                        ;
+; boundary_port         ; 99                          ;
+;                       ;                             ;
+; Max LUT depth         ; 21.70                       ;
+; Average LUT depth     ; 14.45                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:35     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Wed Dec 16 10:08:30 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Final_Project -c Final_Project
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/assignment13/edge_detect.v
+    Info (12023): Found entity 1: edge_detect File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/assignment13/edge_detect.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file final_project.v
+    Info (12023): Found entity 1: Final_Project File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/riscv_cpu.v
+    Info (12023): Found entity 1: RiscV_cpu File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/registers.v
+    Info (12023): Found entity 1: register File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Registers.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/pc.v
+    Info (12023): Found entity 1: program_counter File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/PC.v Line: 3
+Warning (12090): Entity "mux" obtained from "../HW5/Mux.v" instead of from Quartus Prime megafunction library File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Mux.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/mux.v
+    Info (12023): Found entity 1: mux File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Mux.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/instructionmemory.v
+    Info (12023): Found entity 1: instructionMemory File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/InstructionMemory.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/immgen.v
+    Info (12023): Found entity 1: imm_gen File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/ImmGen.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/fetch.v
+    Info (12023): Found entity 1: fetch File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/fetch.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/dec7seg.v
+    Info (12023): Found entity 1: dec7seg File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/dec7seg.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/datamemory.v
+    Info (12023): Found entity 1: ram File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/DataMemory.v Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/control.v
+    Info (12023): Found entity 1: control File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Control.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/alu.v
+    Info (12023): Found entity 1: ALU File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/ALU.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /school/3bachiiw/computerarchitectures/install_files/codegenerated/de1_soc/hw5/adder.v
+    Info (12023): Found entity 1: ADD File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Adder.v Line: 3
+Warning (10236): Verilog HDL Implicit Net warning at RiscV_cpu.v(20): created implicit net for "reset" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 20
+Warning (10236): Verilog HDL Implicit Net warning at RiscV_cpu.v(21): created implicit net for "stepbtn" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 21
+Warning (10236): Verilog HDL Implicit Net warning at RiscV_cpu.v(22): created implicit net for "showHexbtn" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 22
+Info (12127): Elaborating entity "Final_Project" for the top level hierarchy
+Warning (10034): Output port "VGA_B" at Final_Project.v(33) has no driver File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 33
+Warning (10034): Output port "VGA_G" at Final_Project.v(35) has no driver File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 35
+Warning (10034): Output port "VGA_R" at Final_Project.v(37) has no driver File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 37
+Warning (10034): Output port "VGA_BLANK_N" at Final_Project.v(32) has no driver File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 32
+Warning (10034): Output port "VGA_CLK" at Final_Project.v(34) has no driver File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 34
+Warning (10034): Output port "VGA_HS" at Final_Project.v(36) has no driver File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 36
+Warning (10034): Output port "VGA_SYNC_N" at Final_Project.v(38) has no driver File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 38
+Warning (10034): Output port "VGA_VS" at Final_Project.v(40) has no driver File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 40
+Info (12128): Elaborating entity "RiscV_cpu" for hierarchy "RiscV_cpu:riscv" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 57
+Warning (10036): Verilog HDL or VHDL warning at RiscV_cpu.v(80): object "Memory_select" assigned a value but never read File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 80
+Warning (10036): Verilog HDL or VHDL warning at RiscV_cpu.v(80): object "SW_select" assigned a value but never read File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 80
+Warning (10036): Verilog HDL or VHDL warning at RiscV_cpu.v(80): object "KEY_select" assigned a value but never read File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 80
+Info (10264): Verilog HDL Case Statement information at RiscV_cpu.v(87): all case item expressions in this case statement are onehot File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 87
+Info (12128): Elaborating entity "edge_detect" for hierarchy "RiscV_cpu:riscv|edge_detect:ed1" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 25
+Info (12128): Elaborating entity "program_counter" for hierarchy "RiscV_cpu:riscv|program_counter:PC" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 27
+Info (12128): Elaborating entity "instructionMemory" for hierarchy "RiscV_cpu:riscv|instructionMemory:Instruction_memory" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 28
+Warning (10850): Verilog HDL warning at InstructionMemory.v(21): number of words (28) in memory file does not match the number of elements in the address range [0:255] File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/InstructionMemory.v Line: 21
+Warning (10030): Net "memory.data_a" at InstructionMemory.v(17) has no driver or initial value, using a default initial value '0' File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/InstructionMemory.v Line: 17
+Warning (10030): Net "memory.waddr_a" at InstructionMemory.v(17) has no driver or initial value, using a default initial value '0' File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/InstructionMemory.v Line: 17
+Warning (10030): Net "memory.we_a" at InstructionMemory.v(17) has no driver or initial value, using a default initial value '0' File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/InstructionMemory.v Line: 17
+Info (12128): Elaborating entity "ADD" for hierarchy "RiscV_cpu:riscv|ADD:Add_4" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 29
+Info (12128): Elaborating entity "control" for hierarchy "RiscV_cpu:riscv|control:control" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 30
+Warning (10036): Verilog HDL or VHDL warning at Control.v(19): object "aui_gr" assigned a value but never read File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Control.v Line: 19
+Warning (10036): Verilog HDL or VHDL warning at Control.v(20): object "jal_gr" assigned a value but never read File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Control.v Line: 20
+Warning (10036): Verilog HDL or VHDL warning at Control.v(21): object "jlr_gr" assigned a value but never read File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Control.v Line: 21
+Warning (10036): Verilog HDL or VHDL warning at Control.v(27): object "fen_gr" assigned a value but never read File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Control.v Line: 27
+Warning (10036): Verilog HDL or VHDL warning at Control.v(28): object "csr_gr" assigned a value but never read File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Control.v Line: 28
+Info (12128): Elaborating entity "register" for hierarchy "RiscV_cpu:riscv|register:register" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 31
+Warning (10855): Verilog HDL warning at Registers.v(18): initial value for variable regfile should be constant File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Registers.v Line: 18
+Warning (10855): Verilog HDL warning at Registers.v(19): initial value for variable regfile should be constant File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Registers.v Line: 19
+Warning (10855): Verilog HDL warning at Registers.v(20): initial value for variable regfile should be constant File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Registers.v Line: 20
+Warning (10855): Verilog HDL warning at Registers.v(21): initial value for variable regfile should be constant File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Registers.v Line: 21
+Warning (10855): Verilog HDL warning at Registers.v(22): initial value for variable regfile should be constant File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Registers.v Line: 22
+Warning (10855): Verilog HDL warning at Registers.v(23): initial value for variable regfile should be constant File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Registers.v Line: 23
+Warning (10855): Verilog HDL warning at Registers.v(24): initial value for variable regfile should be constant File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/Registers.v Line: 24
+Info (12128): Elaborating entity "imm_gen" for hierarchy "RiscV_cpu:riscv|imm_gen:imm_gen" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 32
+Info (10264): Verilog HDL Case Statement information at ImmGen.v(10): all case item expressions in this case statement are onehot File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/ImmGen.v Line: 10
+Info (12128): Elaborating entity "mux" for hierarchy "RiscV_cpu:riscv|mux:mux_aluRegister" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 33
+Info (12128): Elaborating entity "ALU" for hierarchy "RiscV_cpu:riscv|ALU:alu" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 34
+Info (12128): Elaborating entity "ram" for hierarchy "RiscV_cpu:riscv|ram:Data_memory" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 40
+Warning (10036): Verilog HDL or VHDL warning at DataMemory.v(23): object "SW_reg" assigned a value but never read File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/DataMemory.v Line: 23
+Warning (10036): Verilog HDL or VHDL warning at DataMemory.v(24): object "KEY_reg" assigned a value but never read File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/DataMemory.v Line: 24
+Warning (10850): Verilog HDL warning at DataMemory.v(35): number of words (8) in memory file does not match the number of elements in the address range [0:63] File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/DataMemory.v Line: 35
+Warning (10855): Verilog HDL warning at DataMemory.v(35): initial value for variable memory should be constant File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/DataMemory.v Line: 35
+Info (10264): Verilog HDL Case Statement information at DataMemory.v(45): all case item expressions in this case statement are onehot File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/DataMemory.v Line: 45
+Warning (10850): Verilog HDL warning at DataMemory.v(89): number of words (8) in memory file does not match the number of elements in the address range [0:63] File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/DataMemory.v Line: 89
+Info (12128): Elaborating entity "dec7seg" for hierarchy "RiscV_cpu:riscv|dec7seg:dc1" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/HW5/RiscV_cpu.v Line: 45
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/db/Final_Project.ram0_instructionMemory_929dabe3.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 32
+    Warning (13410): Pin "VGA_B[0]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 33
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 33
+    Warning (13410): Pin "VGA_B[2]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 33
+    Warning (13410): Pin "VGA_B[3]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 33
+    Warning (13410): Pin "VGA_B[4]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 33
+    Warning (13410): Pin "VGA_B[5]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 33
+    Warning (13410): Pin "VGA_B[6]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 33
+    Warning (13410): Pin "VGA_B[7]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 33
+    Warning (13410): Pin "VGA_CLK" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 34
+    Warning (13410): Pin "VGA_G[0]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 35
+    Warning (13410): Pin "VGA_G[1]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 35
+    Warning (13410): Pin "VGA_G[2]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 35
+    Warning (13410): Pin "VGA_G[3]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 35
+    Warning (13410): Pin "VGA_G[4]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 35
+    Warning (13410): Pin "VGA_G[5]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 35
+    Warning (13410): Pin "VGA_G[6]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 35
+    Warning (13410): Pin "VGA_G[7]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 35
+    Warning (13410): Pin "VGA_HS" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 36
+    Warning (13410): Pin "VGA_R[0]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 37
+    Warning (13410): Pin "VGA_R[1]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 37
+    Warning (13410): Pin "VGA_R[2]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 37
+    Warning (13410): Pin "VGA_R[3]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 37
+    Warning (13410): Pin "VGA_R[4]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 37
+    Warning (13410): Pin "VGA_R[5]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 37
+    Warning (13410): Pin "VGA_R[6]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 37
+    Warning (13410): Pin "VGA_R[7]" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 37
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 38
+    Warning (13410): Pin "VGA_VS" is stuck at GND File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 40
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK2_50" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 9
+    Warning (15610): No output dependent on input pin "CLOCK3_50" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 10
+    Warning (15610): No output dependent on input pin "CLOCK4_50" File: L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.v Line: 11
+Info (21057): Implemented 5222 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 81 output pins
+    Info (21061): Implemented 5123 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 72 warnings
+    Info: Peak virtual memory: 4854 megabytes
+    Info: Processing ended: Wed Dec 16 10:09:33 2020
+    Info: Elapsed time: 00:01:03
+    Info: Total CPU time (on all processors): 00:01:20
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in L:/School/3bachIIW/ComputerArchitectures/Install_files/CodeGenerated/DE1_SOC/Final_Project/Final_Project.map.smsg.
+
+
