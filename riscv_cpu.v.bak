@@ -1,0 +1,235 @@
+
+
+//---------------------------------------------------//
+module RiscV_cpu(input clock, input [9:0] SW, input [3:0] KEY, output reg [6:0] HEX0, output reg [6:0] HEX1, output reg [6:0] HEX2, output reg [6:0] HEX3,
+						output reg [6:0] HEX4, output reg [6:0] HEX5, output reg [9:0] LED);
+//---------------------------------------------------//
+
+`include "RISCV.h"
+
+wire [XLEN-1:0] PC_out, PC_inc, PC_in, PC_i, Instruction, RegWriteData, ReadData1, ReadData2, Imm_out, ALU_in1, ALU_in2, Imm_out_sl, PC_branch, MemReadData, ALUOut,
+				if_id_pc_out, if_id_instructions_out, id_ex_pc_out, id_ex_readdata1_out, id_ex_readdata2_out, id_ex_imm_gen_out, ex_mem_pc_out, ex_mem_readdata2_out,
+				ex_mem_alu_result_out, mem_wb_read_data_out, mem_wb_alu_result_out, forwarding_A_out, forwarding_B_out, forwarding_A_BranchCalculator_out, forwarding_B_BranchCalculator_out;
+				
+wire Branch, MemtoReg, MemWrite, ALUSrc, PCSrc, JALRSrc, RegWrite, zero, Branch_select, id_ex_Branch_out, id_ex_MemtoReg_out, id_ex_MemWrite_out, id_ex_ALUSrc_out, id_ex_PCSrc_out, id_ex_RegWrite_out,
+     ex_mem_zero_out, ex_mem_Branch_out, ex_mem_MemtoReg_out, ex_mem_MemWrite_out, ex_mem_RegWrite_out, mem_wb_MemtoReg_out, mem_wb_RegWrite_out, PCWrite, if_id_write, nopMux_select,
+	 Branch_nopMux, MemtoReg_nopMux, MemWrite_nopMux, RegWrite_nopMux, PCSource_nopMux, branch_calculator_select, flush;
+	 
+wire [3:0] ALUOp, id_ex_ALUOp_out, ALUOp_nopMux;
+wire [2:0] Type_Select, id_ex_Type_Select_out, ex_mem_Type_Select_out, Type_Select_nopMux;
+wire [4:0] Imm_extend, id_ex_WriteReg_out, ex_mem_WriteReg_out, mem_wb_WriteReg_out, id_ex_rs1_out, id_ex_rs2_out, id_ex_imm_extend_out;
+wire [1:0] fw_a, fw_b, fw_a_Calculator, fw_b_Calculator;
+
+reg enable;
+reg [23:0] displayData;
+reg [31:0] outputdata;
+
+
+assign reset = !KEY[0];
+assign stepbtn = !KEY[1];
+assign showHexbtn = !KEY[2];
+
+
+mux mux_jalr (.a(PC_i), .b(ReadData1), .select(JALRSrc), .out(PC_in));
+programCounter PC (.in(PC_in), .out(PC_out), .enable(PCWrite), .clock(clock), .reset(reset));
+instructionMemory Instruction_memory (.address(PC_out), .data_out(Instruction));
+ADD Add_4(.a(PC_out), .b(4), .out(PC_inc));
+
+if_id_register if_id_register(.if_id_pc_in(PC_out), .if_id_instructions_in(Instruction), .if_id_pc_out(if_id_pc_out), .if_id_instructions_out(if_id_instructions_out),
+							  .enable(if_id_write), .clock(clock), .reset(reset), .if_id_flush(flush));
+
+
+control control (.Instruction(if_id_instructions_out), .Branch(Branch), .MemtoReg(MemtoReg), .MemWrite(MemWrite), .ALUSrc(ALUSrc), .PCSrc(PCSrc), .JALRSrc(JALRSrc), .RegWrite(RegWrite), .ALUOp(ALUOp), .Type_Select(Type_Select),
+                 .Imm_extend(Imm_extend));
+register register (.Read_register_1(if_id_instructions_out[19:15]), .Read_register_2(if_id_instructions_out[24:20]), .Write_register(mem_wb_WriteReg_out), .Write_data(RegWriteData),
+				   .RegWrite(mem_wb_RegWrite_out), .Read_data_1(ReadData1), .Read_data_2(ReadData2), .Imm_extend(Imm_extend), .clock(clock), .reset(reset));
+				   
+mux3input mux3ABranchCalc(.a(ReadData1), .b(MemReadData), .c(ALUOut), .select(fw_a_Calculator), .out(forwarding_A_BranchCalculator_out));
+mux3input mux3BBranchCalc(.a(ReadData2), .b(MemReadData), .c(ALUOut), .select(fw_b_Calculator), .out(forwarding_B_BranchCalculator_out));
+
+forwarding_Unit forw_u_Calc(.rs1(if_id_instructions_out[19:15]), .rs2(if_id_instructions_out[24:20]), .ex_mem_WriteReg(id_ex_WriteReg_out), .ex_mem_RegWrite(id_ex_RegWrite_out), .ex_mem_MemtoReg(id_ex_MemtoReg_out),
+								.mem_wb_WriteReg(ex_mem_WriteReg_out), .mem_wb_RegWrite(ex_mem_RegWrite_out), .mem_wb_MemtoReg(ex_mem_MemtoReg_out), .fw_a(fw_a_Calculator), .fw_b(fw_b_Calculator), .Imm_extend(Imm_extend));
+
+branch_calculator branch_Calc(.Read_data_1(forwarding_A_BranchCalculator_out), .Read_data_2(forwarding_B_BranchCalculator_out), .operation(ALUOp_nopMux), .branch_calculator_select(branch_calculator_select));
+
+imm_gen imm_gen(.Instruction(if_id_instructions_out), .Imm_extend(Imm_extend), .Imm_out(Imm_out));
+
+hazard_detection_unit hazard_detection_unit(.if_id_rs1(if_id_instructions_out[19:15]), .if_id_rs2(if_id_instructions_out[24:20]), .id_ex_WriteReg(id_ex_WriteReg_out),
+										    .id_ex_MemtoReg_out(id_ex_MemtoReg_out), .PCWrite(PCWrite), .if_id_write(if_id_write), .nopMux_select(nopMux_select));
+
+nopMux nopMux (.Branch(Branch), .MemtoReg(MemtoReg), .MemWrite(MemWrite), .ALUSrc(ALUSrc), .RegWrite(RegWrite), .PCSource(PCSrc), .nopMux_Select(nopMux_select), .ALUOp(ALUOp), .Type_Select(Type_Select),
+			   .Branch_nopMux(Branch_nopMux), .MemtoReg_nopMux(MemtoReg_nopMux), .MemWrite_nopMux(MemWrite_nopMux), .ALUSrc_nopMux(ALUSrc_nopMux), .RegWrite_nopMux(RegWrite_nopMux),
+			   .PCSource_nopMux(PCSource_nopMux), .ALUOp_nopMux(ALUOp_nopMux), .Type_Select_nopMux(Type_Select_nopMux));
+			   		   
+		   
+assign Branch_select = Branch_nopMux & branch_calculator_select;
+assign flush = Branch_select || JALRSrc;
+
+ADD add_sum(.a(if_id_pc_out), .b(Imm_out), .out(PC_branch));
+
+id_ex_register id_ex_register(.id_ex_pc_in(if_id_pc_out), .id_ex_pc_out(id_ex_pc_out), .id_ex_readdata1_in(ReadData1), .id_ex_readdata1_out(id_ex_readdata1_out),
+					  .id_ex_readdata2_in(ReadData2), .id_ex_readdata2_out(id_ex_readdata2_out), .id_ex_imm_gen_in(Imm_out), .id_ex_imm_gen_out(id_ex_imm_gen_out),
+					  .enable(step), .clock(clock), .reset(reset), .id_ex_Branch_in(Branch_nopMux), .id_ex_MemtoReg_in(MemtoReg_nopMux), .id_ex_MemWrite_in(MemWrite_nopMux), .id_ex_ALUSrc_in(ALUSrc_nopMux), .id_ex_PCSrc_in(PCSource_nopMux), .id_ex_RegWrite_in(RegWrite_nopMux),
+					  .id_ex_Branch_out(id_ex_Branch_out), .id_ex_MemtoReg_out(id_ex_MemtoReg_out), .id_ex_MemWrite_out(id_ex_MemWrite_out), .id_ex_ALUSrc_out(id_ex_ALUSrc_out), .id_ex_PCSrc_out(id_ex_PCSrc_out), 
+					  .id_ex_RegWrite_out(id_ex_RegWrite_out), .id_ex_ALUOp_in(ALUOp_nopMux), .id_ex_Type_Select_in(Type_Select_nopMux), .id_ex_Instructies_in(if_id_instructions_out), .id_ex_ALUOp_out(id_ex_ALUOp_out),
+					  .id_ex_Type_Select_out(id_ex_Type_Select_out), .id_ex_WriteReg_out(id_ex_WriteReg_out), .id_ex_rs1_out(id_ex_rs1_out), .id_ex_rs2_out(id_ex_rs2_out),
+					  .id_ex_imm_extend_in(Imm_extend), .id_ex_imm_extend_out(id_ex_imm_extend_out));
+
+
+
+mux3input mux3fa(.a(ALU_in1), .b(RegWriteData), .c(ex_mem_alu_result_out), .select(fw_a), .out(forwarding_A_out));
+mux3input mux3fb(.a(ALU_in2), .b(RegWriteData), .c(ex_mem_alu_result_out), .select(fw_b), .out(forwarding_B_out));
+
+forwarding_Unit forw_u(.rs1(id_ex_rs1_out), .rs2(id_ex_rs2_out), .ex_mem_WriteReg(ex_mem_WriteReg_out), .ex_mem_RegWrite(ex_mem_RegWrite_out), .ex_mem_MemtoReg(ex_mem_MemtoReg_out),
+								.mem_wb_WriteReg(mem_wb_WriteReg_out), .mem_wb_RegWrite(mem_wb_RegWrite_out), .mem_wb_MemtoReg(mem_wb_MemtoReg_out), .fw_a(fw_a), .fw_b(fw_b), .Imm_extend(id_ex_imm_extend_out));
+
+
+mux mux_aluReg(.a(id_ex_readdata2_out), .b(id_ex_imm_gen_out), .select(id_ex_ALUSrc_out), .out(ALU_in2));
+
+ALU alu(.a(forwarding_A_out), .b(forwarding_B_out), .operation(id_ex_ALUOp_out), .out(ALUOut), .zero(zero));
+
+mux muxPC(.a(id_ex_readdata1_out), .b(id_ex_pc_out), .select(id_ex_PCSrc_out), .out(ALU_in1));
+
+ex_mem_register ex_mem_register(.ex_mem_pc_in(PC_branch), .ex_mem_pc_out(ex_mem_pc_out), .ex_mem_readdata2_in(id_ex_readdata2_out), .ex_mem_readdata2_out(ex_mem_readdata2_out),
+					   .ex_mem_zero_in(zero), .ex_mem_zero_out(ex_mem_zero_out), .ex_mem_alu_result_in(ALUOut), .ex_mem_alu_result_out(ex_mem_alu_result_out),
+					   .enable(step), .clock(clock), .reset(reset), .ex_mem_Branch_in(id_ex_Branch_out), .ex_mem_MemtoReg_in(id_ex_MemtoReg_out), .ex_mem_MemWrite_in(id_ex_MemWrite_out), .ex_mem_RegWrite_in(id_ex_RegWrite_out),
+					   .ex_mem_Branch_out(ex_mem_Branch_out), .ex_mem_MemtoReg_out(ex_mem_MemtoReg_out), .ex_mem_MemWrite_out(ex_mem_MemWrite_out), .ex_mem_RegWrite_out(ex_mem_RegWrite_out),
+					   .ex_mem_Type_Select_in(id_ex_Type_Select_out), .ex_mem_WriteReg_in(id_ex_WriteReg_out), .ex_mem_Type_Select_out(ex_mem_Type_Select_out), .ex_mem_WriteReg_out(ex_mem_WriteReg_out));
+
+
+mux mux_pc(.a(PC_inc), .b(PC_branch), .select(Branch_select), .out(PC_i));
+
+ram Data_memory(.address(ex_mem_alu_result_out), .data_in(ex_mem_readdata2_out), .data_out(MemReadData), .enable(step), .reset(reset), .write_enable(ex_mem_MemWrite_out), .Type_Select(ex_mem_Type_Select_out),
+						 .clock(clock), .SW(switch), .KEY(key));
+
+mem_wb_register mem_wb_register(.mem_wb_read_data_in(MemReadData), .mem_wb_read_data_out(mem_wb_read_data_out), .mem_wb_alu_result_in(ex_mem_alu_result_out), .mem_wb_alu_result_out(mem_wb_alu_result_out),
+							    .mem_wb_MemtoReg_in(ex_mem_MemtoReg_out), .mem_wb_RegWrite_in(ex_mem_RegWrite_out), .mem_wb_MemtoReg_out(mem_wb_MemtoReg_out), .mem_wb_RegWrite_out(mem_wb_RegWrite_out),
+								.mem_wb_WriteReg_in(ex_mem_WriteReg_out), .mem_wb_WriteReg_out(mem_wb_WriteReg_out), .enable(step), .clock(clock), .reset(reset));
+								
+mux mux_memData(.a(mem_wb_alu_result_out), .b(mem_wb_read_data_out), .select(mem_wb_MemtoReg_out), .out(RegWriteData));
+
+
+
+
+dec7seg dc1(displayData[3:0], HEX0_decoder);
+dec7seg dc2(displayData[7:4], HEX1_decoder);
+dec7seg dc3(displayData[11:8], HEX2_decoder);
+dec7seg dc4(displayData[15:12], HEX3_decoder);
+dec7seg dc5(displayData[19:16], HEX4_decoder);
+dec7seg dc6(displayData[23:20], HEX5_decoder);
+
+always @(*) begin
+
+    outputdata = {XLEN{1'b0}};
+	 
+    case (SW[3:0])
+    4'b0000 : outputdata = PC_out;
+    4'b0001 : outputdata = PC_inc;
+    4'b0010 : outputdata = PC_branch;
+    4'b0011 : outputdata = PC_in;
+    4'b0100 : outputdata = Instruction;
+    4'b0101 : outputdata = ReadData1;
+    4'b0110 : outputdata = ReadData2;
+    4'b0111 : outputdata = ALU_in2;
+    4'b1000 : outputdata = Imm_out;
+    4'b1001 : outputdata[0] = zero;
+    4'b1010 : outputdata = ALUOut;
+    4'b1011 : outputdata = MemReadData;
+    4'b1100 : outputdata = RegWriteData;
+	 4'b1101 : outputdata[0] = Hex_enable;
+	 default : ;
+    endcase
+end
+
+reg [3:0] hex0_reg, hex1_reg, hex2_reg, hex3_reg, hex4_reg, hex5_reg;
+reg [23:0] hexValue_reg;
+reg [9:0] LED_value;
+reg hexMode_reg;
+
+reg Memory_select, LEDR_select, SW_select, KEY_select, HEX0_select, HEX1_select, HEX2_select, HEX3_select, HEX4_select, HEX5_select, HEXValue_select, HEXMode_select;
+
+always @* begin
+
+	Memory_select = 0; LEDR_select = 0; SW_select = 0; KEY_select = 0; HEX0_select = 0; HEX1_select = 0; HEX2_select = 0; HEX3_select = 0; HEX4_select = 0; HEX5_select = 0;
+	HEXValue_select = 0; HEXMode_select = 0;
+	
+	case(ALUOut[XLEN-1:12])
+	
+		{{(XLEN-32){1'b0}}, 20'h10000} : Memory_select = 1;
+		{{(XLEN-32){1'b0}}, 20'h40000} : case (ALUOut[11:8])
+		
+														0: LEDR_select = 1;
+														1: SW_select = 1;
+														2: KEY_select = 1;
+														3: case (ALUOut[7:0])
+																
+																8'h0:		HEX0_select = 1;
+																8'h4:		HEX1_select = 1;
+																8'h8:		HEX2_select = 1;
+																8'hC:		HEX3_select = 1;
+																8'h10:	HEX4_select = 1;
+																8'h14:	HEX5_select = 1;
+																8'h18:	HEXValue_select = 1;
+																8'h1C:	HEXMode_select = 1;
+																default: ;
+															endcase
+															default: ;
+													endcase
+													default: ;
+	endcase
+end
+
+reg Hex_enable;
+reg [23:0] HexValueSW9;
+
+always @(posedge clock) begin if (reset) Hex_enable <= 1'b0; else if (HEXMode_select && MemWrite) Hex_enable <= ReadData2[0:0]; end
+always @(posedge clock) begin if (reset) LED <= 10'b0; else if (SW[9]) LED <= 10'b0; else if (LEDR_select && MemWrite) LED <= ReadData2[9:0]; end
+always @(posedge clock) begin if (reset) HEX0_SW9 <= 7'b0; else if (HEX0_select && MemWrite) HEX0_SW9 <= ReadData2[6:0]; end
+always @(posedge clock) begin if (reset) HEX1_SW9 <= 7'b0; else if (HEX1_select && MemWrite) HEX1_SW9 <= ReadData2[6:0]; end
+always @(posedge clock) begin if (reset) HEX2_SW9 <= 7'b0; else if (HEX2_select && MemWrite) HEX2_SW9 <= ReadData2[6:0]; end
+always @(posedge clock) begin if (reset) HEX3_SW9 <= 7'b0; else if (HEX3_select && MemWrite) HEX3_SW9 <= ReadData2[6:0]; end
+always @(posedge clock) begin if (reset) HEX4_SW9 <= 7'b0; else if (HEX4_select && MemWrite) HEX4_SW9 <= ReadData2[6:0]; end
+always @(posedge clock) begin if (reset) HEX5_SW9 <= 7'b0; else if (HEX5_select && MemWrite) HEX5_SW9 <= ReadData2[6:0]; end
+always @(posedge clock) begin if (reset) HexValueSW9 <= 24'b0; else if (HEXValue_select && MemWrite) HexValueSW9 <= ReadData2[23:0]; end
+
+
+reg [6:0] HEX0_SW9, HEX1_SW9, HEX2_SW9, HEX3_SW9, HEX4_SW9, HEX5_SW9; 
+wire [6:0] HEX0_decoder, HEX1_decoder, HEX2_decoder, HEX3_decoder, HEX4_decoder, HEX5_decoder;
+
+always @(*) begin
+	if(Hex_enable == 0 && SW[9] == 0) begin
+		HEX0 = ~HEX0_SW9;
+		HEX1 = ~HEX1_SW9;
+		HEX2 = ~HEX2_SW9;
+		HEX3 = ~HEX3_SW9;
+		HEX4 = ~HEX4_SW9;
+		HEX5 = ~HEX5_SW9;
+	end
+	else begin
+		HEX0 = HEX0_decoder;
+		HEX1 = HEX1_decoder;
+		HEX2 = HEX2_decoder;
+		HEX3 = HEX3_decoder;
+		HEX4 = HEX4_decoder;
+		HEX5 = HEX5_decoder;
+	end
+end
+
+always @(*) begin
+	if (SW[8] && SW[9]) begin
+		enable <= step;
+	end else begin
+		enable <= 1'b1;
+	end
+end
+
+
+always @(*) begin
+	if (SW[9] == 0 && Hex_enable) displayData <= HexValueSW9;
+	else if (showHexbtn) displayData <= outputdata[31:8];
+	else displayData <= outputdata[23:0];
+end
+
+
+
+endmodule
