@@ -37,7 +37,6 @@ reg [size-1:0] HEXMode_reg;
 
 
 initial $readmemh(contentsMemory, memory); // Initialize the RAM contents
-initial $readmemh(contentsStack, stack); // Initialize the RAM contents
 
 reg Memory_select, LEDR_select, SW_select, KEY_select, HEX0_select, HEX1_select, HEX2_select, HEX3_select, HEX4_select, HEX5_select, HEXValue_select, HEXMode_select, Stack_select;
 
@@ -76,11 +75,8 @@ end
 
 
 always @* begin
-
 	data_out <= 0;
 	data_out_temp <= 0;
-
-
 	if (LEDR_select) data_out <= LED_reg;
 	else if (SW_select) data_out <= {{(XLEN-10){1'b0}}, SW};
 	else if (KEY_select) data_out <= {{(XLEN-4){1'b0}}, KEY, 1'b0};

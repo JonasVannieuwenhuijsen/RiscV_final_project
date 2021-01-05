@@ -92,7 +92,7 @@ ALU alu(.a(forwarding_A_out), .b(forwarding_B_out), .operation(id_ex_ALUOp_out),
 
 mux muxPC(.a(id_ex_readdata1_out), .b(id_ex_pc_out), .select(id_ex_PCSrc_out), .out(ALU_in1));
 
-ex_mem_register ex_mem_register(.ex_mem_pc_in(PC_branch), .ex_mem_pc_out(ex_mem_pc_out), .ex_mem_readdata2_in(id_ex_readdata2_out), .ex_mem_readdata2_out(ex_mem_readdata2_out),
+ex_mem_register ex_mem_register(.ex_mem_pc_in(PC_branch), .ex_mem_pc_out(ex_mem_pc_out), .ex_mem_readdata2_in(forwarding_B_out), .ex_mem_readdata2_out(ex_mem_readdata2_out),
 					   .ex_mem_zero_in(zero), .ex_mem_zero_out(ex_mem_zero_out), .ex_mem_alu_result_in(ALUOut), .ex_mem_alu_result_out(ex_mem_alu_result_out),
 					   .enable(step), .clock(clock), .reset(reset), .ex_mem_Branch_in(id_ex_Branch_out), .ex_mem_MemtoReg_in(id_ex_MemtoReg_out), .ex_mem_MemWrite_in(id_ex_MemWrite_out), .ex_mem_RegWrite_in(id_ex_RegWrite_out),
 					   .ex_mem_Branch_out(ex_mem_Branch_out), .ex_mem_MemtoReg_out(ex_mem_MemtoReg_out), .ex_mem_MemWrite_out(ex_mem_MemWrite_out), .ex_mem_RegWrite_out(ex_mem_RegWrite_out),
@@ -188,15 +188,15 @@ end
 reg Hex_enable;
 reg [23:0] HexValueSW9;
 	
-always @(posedge clock) begin if (reset) Hex_enable <= 1'b0; 	else if (HEXMode_select && id_ex_MemWrite_out) Hex_enable <= id_ex_readdata2_out[0:0]; 	end
-always @(posedge clock) begin if (reset) LED <= 10'b0; 			else if (LEDR_select && id_ex_MemWrite_out) LED <= id_ex_readdata2_out[9:0]; 					end
-always @(posedge clock) begin if (reset) HEX0_SW9 <= 7'b0; 		else if (HEX0_select && id_ex_MemWrite_out) HEX0_SW9 <= id_ex_readdata2_out[6:0]; 			end
-always @(posedge clock) begin if (reset) HEX1_SW9 <= 7'b0; 		else if (HEX1_select && id_ex_MemWrite_out) HEX1_SW9 <= id_ex_readdata2_out[6:0]; 			end
-always @(posedge clock) begin if (reset) HEX2_SW9 <= 7'b0; 		else if (HEX2_select && id_ex_MemWrite_out) HEX2_SW9 <= id_ex_readdata2_out[6:0]; 			end
-always @(posedge clock) begin if (reset) HEX3_SW9 <= 7'b0; 		else if (HEX3_select && id_ex_MemWrite_out) HEX3_SW9 <= id_ex_readdata2_out[6:0]; 			end
-always @(posedge clock) begin if (reset) HEX4_SW9 <= 7'b0; 		else if (HEX4_select && id_ex_MemWrite_out) HEX4_SW9 <= id_ex_readdata2_out[6:0]; 			end
-always @(posedge clock) begin if (reset) HEX5_SW9 <= 7'b0; 		else if (HEX5_select && id_ex_MemWrite_out) HEX5_SW9 <= id_ex_readdata2_out[6:0]; 			end
-always @(posedge clock) begin if (reset) HexValueSW9 <= 24'b0; else if (HEXValue_select && id_ex_MemWrite_out) HexValueSW9 <= id_ex_readdata2_out[23:0]; end
+always @(posedge clock) begin if (reset) Hex_enable <= 1'b0; 	else if (HEXMode_select && id_ex_MemWrite_out) 	Hex_enable 	<= id_ex_readdata2_out[0:0]; 	end
+always @(posedge clock) begin if (reset) LED <= 10'b0; 			else if (LEDR_select && id_ex_MemWrite_out) 		LED 			<= id_ex_readdata2_out[9:0]; 	end
+always @(posedge clock) begin if (reset) HEX0_SW9 <= 7'b0; 		else if (HEX0_select && id_ex_MemWrite_out)		HEX0_SW9 	<= id_ex_readdata2_out[6:0]; 	end
+always @(posedge clock) begin if (reset) HEX1_SW9 <= 7'b0; 		else if (HEX1_select && id_ex_MemWrite_out) 		HEX1_SW9 	<= id_ex_readdata2_out[6:0]; 	end
+always @(posedge clock) begin if (reset) HEX2_SW9 <= 7'b0; 		else if (HEX2_select && id_ex_MemWrite_out) 		HEX2_SW9 	<= id_ex_readdata2_out[6:0]; 	end
+always @(posedge clock) begin if (reset) HEX3_SW9 <= 7'b0; 		else if (HEX3_select && id_ex_MemWrite_out) 		HEX3_SW9 	<= id_ex_readdata2_out[6:0]; 	end
+always @(posedge clock) begin if (reset) HEX4_SW9 <= 7'b0; 		else if (HEX4_select && id_ex_MemWrite_out) 		HEX4_SW9 	<= id_ex_readdata2_out[6:0]; 	end
+always @(posedge clock) begin if (reset) HEX5_SW9 <= 7'b0; 		else if (HEX5_select && id_ex_MemWrite_out) 		HEX5_SW9 	<= id_ex_readdata2_out[6:0]; 	end
+always @(posedge clock) begin if (reset) HexValueSW9 <= 24'b0; else if (HEXValue_select && id_ex_MemWrite_out) HexValueSW9 <= id_ex_readdata2_out[23:0];	end
 
 
 reg [6:0] HEX0_SW9, HEX1_SW9, HEX2_SW9, HEX3_SW9, HEX4_SW9, HEX5_SW9; 

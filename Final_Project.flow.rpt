@@ -1,5 +1,5 @@
 Flow report for Final_Project
-Sat Jan 02 17:31:28 2021
+Sun Jan 03 15:15:21 2021
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,14 +41,14 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sat Jan 02 17:30:40 2021       ;
+; Flow Status                     ; Successful - Sun Jan 03 15:14:18 2021       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; Final_Project                               ;
 ; Top-level Entity Name           ; Final_Project                               ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 4,263 / 32,070 ( 13 % )                     ;
+; Logic utilization (in ALMs)     ; 4,191 / 32,070 ( 13 % )                     ;
 ; Total registers                 ; 5881                                        ;
 ; Total pins                      ; 99 / 457 ( 22 % )                           ;
 ; Total virtual pins              ; 0                                           ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/02/2021 17:20:12 ;
+; Start date & time ; 01/03/2021 15:05:44 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Final_Project       ;
 +-------------------+---------------------+
@@ -79,9 +79,11 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 36074248823853.160960441206728         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 36074248823853.160968274407584         ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; ram.bsf                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; ram_bb.v                               ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -95,11 +97,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:36     ; 1.2                     ; 4919 MB             ; 00:02:06                           ;
-; Fitter                    ; 00:08:23     ; 1.1                     ; 6333 MB             ; 00:13:53                           ;
-; Assembler                 ; 00:00:17     ; 1.0                     ; 4894 MB             ; 00:00:16                           ;
-; TimeQuest Timing Analyzer ; 00:00:47     ; 1.6                     ; 5250 MB             ; 00:01:10                           ;
-; Total                     ; 00:11:03     ; --                      ; --                  ; 00:17:25                           ;
+; Analysis & Synthesis      ; 00:01:13     ; 1.2                     ; 4928 MB             ; 00:01:45                           ;
+; Fitter                    ; 00:06:49     ; 1.1                     ; 6336 MB             ; 00:12:09                           ;
+; Assembler                 ; 00:00:21     ; 1.0                     ; 4897 MB             ; 00:00:19                           ;
+; TimeQuest Timing Analyzer ; 00:01:01     ; 1.7                     ; 5251 MB             ; 00:01:24                           ;
+; Total                     ; 00:09:24     ; --                      ; --                  ; 00:15:37                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
