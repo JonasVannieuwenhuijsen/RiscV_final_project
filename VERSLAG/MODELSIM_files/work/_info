@@ -1,0 +1,589 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/School/SingleCycle
+vADD
+Z1 !s110 1610112000
+!i10b 1
+!s100 0mo`zG:DH<IANJRXRBH^K2
+I1B@3e?[0iXn[9KkiR7F5F1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dD:/School/FinalProject
+Z4 w1608493856
+8D:/School/FinalProject/Adder.v
+FD:/School/FinalProject/Adder.v
+Z5 FRISCV.h
+L0 3
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1610112000.000000
+!s107 RISCV.h|D:/School/FinalProject/Adder.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/Adder.v|
+!i113 1
+Z8 o-work work
+Z9 tCvgOpt 0
+n@a@d@d
+vALU
+R1
+!i10b 1
+!s100 ICWQCAkWFglj55nK@GL380
+IYF4kbCl4If7N>;9MU^lA90
+R2
+R3
+w1609418358
+8D:/School/FinalProject/ALU.v
+FD:/School/FinalProject/ALU.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R7
+!s107 RISCV.h|D:/School/FinalProject/ALU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/ALU.v|
+!i113 1
+R8
+R9
+n@a@l@u
+vbranch_calculator
+Z10 !s110 1610112003
+!i10b 1
+!s100 o8ZWkY1Z?1<8=h3b=CkKi1
+IMW39mnM:C;KkKKmDd0SGo1
+R2
+R3
+w1609581488
+8D:/School/FinalProject/branch_calculator.v
+FD:/School/FinalProject/branch_calculator.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+Z11 !s108 1610112003.000000
+!s107 RISCV.h|D:/School/FinalProject/branch_calculator.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/branch_calculator.v|
+!i113 1
+R8
+R9
+vcontrol
+R1
+!i10b 1
+!s100 6gOj5B6QZ76Ohb^1^R[XP3
+IBcD>c`fWhC;:cS>oT7n;l2
+R2
+R3
+w1608501817
+8D:/School/FinalProject/Control.v
+FD:/School/FinalProject/Control.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R7
+!s107 RISCV.h|D:/School/FinalProject/Control.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/Control.v|
+!i113 1
+R8
+R9
+vex_mem_register
+Z12 !s110 1610112002
+!i10b 1
+!s100 E7Xb_2VY00>20P1P2J93U1
+IDJE6;981nX;HZ@N=RXGXH0
+R2
+R3
+w1609418456
+8D:/School/FinalProject/ex_mem_register.v
+FD:/School/FinalProject/ex_mem_register.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+Z13 !s108 1610112002.000000
+!s107 RISCV.h|D:/School/FinalProject/ex_mem_register.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/ex_mem_register.v|
+!i113 1
+R8
+R9
+vfetch
+R1
+!i10b 1
+!s100 C1@bo31?EACDf?2Jhak?_2
+I35Xn69em:UM^4RAD>LJ7Y3
+R2
+R3
+R4
+8D:/School/FinalProject/fetch.v
+FD:/School/FinalProject/fetch.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R7
+!s107 RISCV.h|D:/School/FinalProject/fetch.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/fetch.v|
+!i113 1
+R8
+R9
+vforwarding_Unit
+R12
+!i10b 1
+!s100 Y>zT2GmCT6Tj`UCO7@?f93
+IMgC>ll3;[43PA3RL?Xef^3
+R2
+R3
+w1609597340
+8D:/School/FinalProject/forwarding_Unit.v
+FD:/School/FinalProject/forwarding_Unit.v
+R5
+L0 2
+R6
+r1
+!s85 0
+31
+R13
+!s107 RISCV.h|D:/School/FinalProject/forwarding_Unit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/forwarding_Unit.v|
+!i113 1
+R8
+R9
+nforwarding_@unit
+vforwarding_Unit_Calc
+R10
+!i10b 1
+!s100 UL3[9:BVZ;P7=_7^iBK]n3
+IIWj<;`nAK0hWf3PH1`NVJ1
+R2
+R3
+w1609940363
+8D:/School/FinalProject/forwarding_Unit_Calc.v
+FD:/School/FinalProject/forwarding_Unit_Calc.v
+R5
+L0 2
+R6
+r1
+!s85 0
+31
+R11
+!s107 RISCV.h|D:/School/FinalProject/forwarding_Unit_Calc.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/forwarding_Unit_Calc.v|
+!i113 1
+R8
+R9
+nforwarding_@unit_@calc
+vhazard_detection_unit
+R10
+!i10b 1
+!s100 FDDeFAS^7AOT8FFBm?>Ih1
+Ici?3Ik<hlS:O@HWjI?`=i3
+R2
+R3
+w1610111714
+8D:/School/FinalProject/hazard_detection_unit.v
+FD:/School/FinalProject/hazard_detection_unit.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R13
+!s107 RISCV.h|D:/School/FinalProject/hazard_detection_unit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/hazard_detection_unit.v|
+!i113 1
+R8
+R9
+vid_ex_register
+R12
+!i10b 1
+!s100 >o@I`U8=C3@_Uh6a_RBPF2
+INT1DJm3ETOUASlV0g_aQ[1
+R2
+R3
+w1609002319
+8D:/School/FinalProject/id_ex_register.v
+FD:/School/FinalProject/id_ex_register.v
+R5
+L0 4
+R6
+r1
+!s85 0
+31
+R13
+!s107 RISCV.h|D:/School/FinalProject/id_ex_register.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/id_ex_register.v|
+!i113 1
+R8
+R9
+vif_id_register
+R12
+!i10b 1
+!s100 _]M27@MdcSVQ7U_z;^b:72
+I_;]PW7;<I^;nY1h^ZaAT[2
+R2
+R3
+w1609428403
+8D:/School/FinalProject/if_id_register.v
+FD:/School/FinalProject/if_id_register.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R13
+!s107 RISCV.h|D:/School/FinalProject/if_id_register.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/if_id_register.v|
+!i113 1
+R8
+R9
+vimm_gen
+R1
+!i10b 1
+!s100 ^2<8@`c=XRFIU2dlh]78@2
+IfDl9bzLejJHABhYMQdG0h3
+R2
+R3
+R4
+8D:/School/FinalProject/ImmGen.v
+FD:/School/FinalProject/ImmGen.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R7
+!s107 RISCV.h|D:/School/FinalProject/ImmGen.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/ImmGen.v|
+!i113 1
+R8
+R9
+vinstructionMemory
+Z14 !s110 1610112001
+!i10b 1
+!s100 fNjF2299MWWE9Ic3OzMYi1
+IS;0=LFSn>e4cm`3gkYlm>3
+R2
+R3
+R4
+8D:/School/FinalProject/InstructionMemory.v
+FD:/School/FinalProject/InstructionMemory.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+Z15 !s108 1610112001.000000
+!s107 RISCV.h|D:/School/FinalProject/InstructionMemory.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/InstructionMemory.v|
+!i113 1
+R8
+R9
+ninstruction@memory
+vmem_wb_register
+R12
+!i10b 1
+!s100 K;W2j@RBBSZ@Vk8dCg9Z;1
+IS`[WhHo]R6:?W0>4HIkD70
+R2
+R3
+w1608986736
+8D:/School/FinalProject/mem_wb_register.v
+FD:/School/FinalProject/mem_wb_register.v
+R5
+L0 4
+R6
+r1
+!s85 0
+31
+R13
+!s107 RISCV.h|D:/School/FinalProject/mem_wb_register.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/mem_wb_register.v|
+!i113 1
+R8
+R9
+vmux
+R14
+!i10b 1
+!s100 ^[5nYihEzTYCJHKXOa7<51
+IORzEbHBDI55MI]zKb<Q?=0
+R2
+R3
+w1608995150
+8D:/School/FinalProject/Mux.v
+FD:/School/FinalProject/Mux.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R15
+!s107 RISCV.h|D:/School/FinalProject/Mux.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/Mux.v|
+!i113 1
+R8
+R9
+vmux3input
+R12
+!i10b 1
+!s100 F:>TPF1`L<jQ?bL@>OIIU1
+I5R:2URSAmnDSa^jj=_l8n1
+R2
+R3
+w1609014239
+8D:/School/FinalProject/Mux3Input.v
+FD:/School/FinalProject/Mux3Input.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R13
+!s107 RISCV.h|D:/School/FinalProject/Mux3Input.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/Mux3Input.v|
+!i113 1
+R8
+R9
+vnopMux
+R10
+!i10b 1
+!s100 g_EK0<21Joi@IA>>o_3WH3
+IlV^K44]b@:aFo_ITA1R9A3
+R2
+R3
+w1609324656
+8D:/School/FinalProject/nopMux.v
+FD:/School/FinalProject/nopMux.v
+R5
+L0 4
+R6
+r1
+!s85 0
+31
+R11
+!s107 RISCV.h|D:/School/FinalProject/nopMux.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/nopMux.v|
+!i113 1
+R8
+R9
+nnop@mux
+vprogramCounter
+R14
+!i10b 1
+!s100 ]j`XGU:okLM@ac6j_1HLM3
+I=2OAS1^QZ4ndXR^M=U9D70
+R2
+R3
+R4
+8D:/School/FinalProject/PC.v
+FD:/School/FinalProject/PC.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R15
+!s107 RISCV.h|D:/School/FinalProject/PC.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/PC.v|
+!i113 1
+R8
+R9
+nprogram@counter
+vram
+R1
+!i10b 1
+!s100 W:K95LXI]:8[oD9k]cOMC2
+I3jeHFI;Ae^;:YKlloCjo10
+R2
+R3
+w1609776051
+8D:/School/FinalProject/DataMemory.v
+FD:/School/FinalProject/DataMemory.v
+R5
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+!s107 RISCV.h|D:/School/FinalProject/DataMemory.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/DataMemory.v|
+!i113 1
+R8
+R9
+vregister
+R14
+!i10b 1
+!s100 2LQne;7N1CZ3ZM8iQ>nk<2
+Im@AE9I=i^6B8V[JZi:FLQ3
+R2
+R3
+w1609583153
+8D:/School/FinalProject/Registers.v
+FD:/School/FinalProject/Registers.v
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R15
+!s107 RISCV.h|D:/School/FinalProject/Registers.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/Registers.v|
+!i113 1
+R8
+R9
+vregister_forwarding
+!s110 1609018383
+!i10b 1
+!s100 I7AAeedI43;7Of[3aMooR0
+I^X2f:XRYH?Y2_fSYo=fiD1
+R2
+R3
+w1609017750
+8D:\School\FinalProject\register_forwarding.v
+FD:\School\FinalProject\register_forwarding.v
+L0 2
+R6
+r1
+!s85 0
+31
+!s108 1609018383.000000
+!s107 D:\School\FinalProject\register_forwarding.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\School\FinalProject\register_forwarding.v|
+!i113 1
+R8
+R9
+vRiscV_cpu
+R14
+!i10b 1
+!s100 0BAljnnSnmUQg>2h8Pe9V1
+IWcz6Y`bij3om4o5eOHeNU3
+R2
+R3
+w1609946365
+8D:/School/FinalProject/RiscV_cpu.v
+FD:/School/FinalProject/RiscV_cpu.v
+R5
+L0 4
+R6
+r1
+!s85 0
+31
+R15
+!s107 RISCV.h|D:/School/FinalProject/RiscV_cpu.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/RiscV_cpu.v|
+!i113 1
+R8
+R9
+n@risc@v_cpu
+vRISCV_testbench
+R12
+!i10b 1
+!s100 e2O1HRzKInI2RUL1JJk7d1
+IKI;e<cdC7Ln_hg2ko1bgh0
+R2
+R3
+w1609946385
+8D:/School/FinalProject/testbench_riscV.v
+FD:/School/FinalProject/testbench_riscV.v
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+R15
+!s107 RISCV.h|D:/School/FinalProject/testbench_riscV.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/testbench_riscV.v|
+!i113 1
+R8
+R9
+n@r@i@s@c@v_testbench
+vshift_left
+R14
+!i10b 1
+!s100 E7_bPeR?1P_n`i`:ciHfI0
+IoVlMmRFRh4gTh67Y6;GNJ0
+R2
+R3
+w1607113335
+8D:/School/FinalProject/ShiftLeft.v
+FD:/School/FinalProject/ShiftLeft.v
+L0 3
+R6
+r1
+!s85 0
+31
+R15
+!s107 D:/School/FinalProject/ShiftLeft.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/ShiftLeft.v|
+!i113 1
+R8
+R9
+vSoCLab_RISCV_testbench
+!s110 1607098690
+!i10b 1
+!s100 TlQ?:AJ]9c@Q9RTjJR9We3
+IEDYVYBI^DSe5EEY]LDjSo1
+R2
+R0
+w1607098683
+8D:\School\SingleCycle\testbench_riscV.v
+FD:\School\SingleCycle\testbench_riscV.v
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1607098690.000000
+!s107 RISCV.h|D:\School\SingleCycle\testbench_riscV.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:\School\SingleCycle\testbench_riscV.v|
+!i113 1
+R8
+R9
+n@so@c@lab_@r@i@s@c@v_testbench
+vtestbench_fetch
+R1
+!i10b 1
+!s100 f8zgfI6Sb=Y9SPFZi>?J<1
+IJcdRa<h1RZ8OKhhXmMVcc1
+R2
+R3
+w1606899107
+8D:/School/FinalProject/TestbenchFetch.v
+FD:/School/FinalProject/TestbenchFetch.v
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+!s107 D:/School/FinalProject/TestbenchFetch.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/School/FinalProject/TestbenchFetch.v|
+!i113 1
+R8
+R9

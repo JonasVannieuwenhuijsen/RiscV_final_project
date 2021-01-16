@@ -1,0 +1,169 @@
+D:/School/FinalProject/Control.v {1 {vlog -work work -stats=none D:/School/FinalProject/Control.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module control
+
+Top level modules:
+	control
+
+} {} {}} D:/School/FinalProject/forwarding_Unit.v {1 {vlog -work work -stats=none D:/School/FinalProject/forwarding_Unit.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module forwarding_Unit
+
+Top level modules:
+	forwarding_Unit
+
+} {} {}} D:/School/FinalProject/ALU.v {1 {vlog -work work -stats=none D:/School/FinalProject/ALU.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} D:/School/FinalProject/Mux.v {1 {vlog -work work -stats=none D:/School/FinalProject/Mux.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mux
+
+Top level modules:
+	mux
+
+} {} {}} D:/School/FinalProject/TestbenchFetch.v {1 {vlog -work work -stats=none D:/School/FinalProject/TestbenchFetch.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module testbench_fetch
+
+Top level modules:
+	testbench_fetch
+
+} {} {}} D:/School/FinalProject/DataMemory.v {1 {vlog -work work -stats=none D:/School/FinalProject/DataMemory.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ram
+
+Top level modules:
+	ram
+
+} {} {}} D:/School/FinalProject/mem_wb_register.v {1 {vlog -work work -stats=none D:/School/FinalProject/mem_wb_register.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mem_wb_register
+
+Top level modules:
+	mem_wb_register
+
+} {} {}} D:/School/FinalProject/PC.v {1 {vlog -work work -stats=none D:/School/FinalProject/PC.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module programCounter
+
+Top level modules:
+	programCounter
+
+} {} {}} D:/School/FinalProject/Mux3Input.v {1 {vlog -work work -stats=none D:/School/FinalProject/Mux3Input.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module mux3input
+
+Top level modules:
+	mux3input
+
+} {} {}} D:/School/FinalProject/id_ex_register.v {1 {vlog -work work -stats=none D:/School/FinalProject/id_ex_register.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module id_ex_register
+
+Top level modules:
+	id_ex_register
+
+} {} {}} D:/School/FinalProject/ImmGen.v {1 {vlog -work work -stats=none D:/School/FinalProject/ImmGen.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module imm_gen
+
+Top level modules:
+	imm_gen
+
+} {} {}} D:/School/FinalProject/testbench_riscV.v {1 {vlog -work work -stats=none D:/School/FinalProject/testbench_riscV.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module RISCV_testbench
+
+Top level modules:
+	RISCV_testbench
+
+} {} {}} D:/School/FinalProject/RiscV_cpu.v {1 {vlog -work work -stats=none D:/School/FinalProject/RiscV_cpu.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module RiscV_cpu
+
+Top level modules:
+	RiscV_cpu
+
+} {} {}} D:/School/FinalProject/hazard_detection_unit.v {1 {vlog -work work -stats=none D:/School/FinalProject/hazard_detection_unit.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module hazard_detection_unit
+
+Top level modules:
+	hazard_detection_unit
+
+} {} {}} D:/School/FinalProject/if_id_register.v {1 {vlog -work work -stats=none D:/School/FinalProject/if_id_register.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module if_id_register
+
+Top level modules:
+	if_id_register
+
+} {} {}} D:/School/FinalProject/ex_mem_register.v {1 {vlog -work work -stats=none D:/School/FinalProject/ex_mem_register.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ex_mem_register
+
+Top level modules:
+	ex_mem_register
+
+} {} {}} D:/School/FinalProject/branch_calculator.v {1 {vlog -work work -stats=none D:/School/FinalProject/branch_calculator.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module branch_calculator
+
+Top level modules:
+	branch_calculator
+
+} {} {}} D:/School/FinalProject/Adder.v {1 {vlog -work work -stats=none D:/School/FinalProject/Adder.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ADD
+
+Top level modules:
+	ADD
+
+} {} {}} D:/School/FinalProject/Registers.v {1 {vlog -work work -stats=none D:/School/FinalProject/Registers.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module register
+
+Top level modules:
+	register
+
+} {} {}} D:/School/FinalProject/ShiftLeft.v {1 {vlog -work work -stats=none D:/School/FinalProject/ShiftLeft.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module shift_left
+
+Top level modules:
+	shift_left
+
+} {} {}} D:/School/FinalProject/fetch.v {1 {vlog -work work -stats=none D:/School/FinalProject/fetch.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fetch
+
+Top level modules:
+	fetch
+
+} {} {}} D:/School/FinalProject/InstructionMemory.v {1 {vlog -work work -stats=none D:/School/FinalProject/InstructionMemory.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module instructionMemory
+
+Top level modules:
+	instructionMemory
+
+} {} {}} D:/School/FinalProject/forwarding_Unit_Calc.v {1 {vlog -work work -stats=none D:/School/FinalProject/forwarding_Unit_Calc.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module forwarding_Unit_Calc
+
+Top level modules:
+	forwarding_Unit_Calc
+
+} {} {}} D:/School/FinalProject/nopMux.v {1 {vlog -work work -stats=none D:/School/FinalProject/nopMux.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module nopMux
+
+Top level modules:
+	nopMux
+
+} {} {}}
