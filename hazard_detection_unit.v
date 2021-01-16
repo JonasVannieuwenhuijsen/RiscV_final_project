@@ -37,7 +37,7 @@ always @ (posedge clock) begin
 	end else if (i != 0) begin
 		i = i - 1;
 	end else if (MemWrite && id_ex_RegWrite_out && id_ex_MemtoReg_out) begin
-		i = 3;
+		i = 2;
 	end
 end
 endmodule
